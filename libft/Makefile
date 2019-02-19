@@ -6,7 +6,7 @@
 #    By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 18:02:14 by lbenard           #+#    #+#              #
-#    Updated: 2019/02/14 16:50:33 by lbenard          ###   ########.fr        #
+#    Updated: 2019/02/19 16:27:49 by lbenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,11 @@ SRC			=	srcs/ft_memset.c						\
 				srcs/ft_list_move_tail.c				\
 				srcs/ft_list_is_last.c					\
 				srcs/ft_list_is_empty.c					\
+				srcs/ft_vector.c						\
+				srcs/ft_vector_data.c					\
+				srcs/ft_vector_reserve.c				\
+				srcs/ft_vector_push_back.c				\
+				srcs/ft_vector_free.c					\
 				srcs/get_next_line.c					\
 				srcs/ft_usize.c							\
 				srcs/ft_isize.c							\
@@ -163,7 +168,7 @@ SRC			=	srcs/ft_memset.c						\
 OBJ			=	$(SRC:.c=.o)
 SRC_FOLDER	=	./srcs
 INCLUDES	=	./includes
-FLAGS		=	-Wall -Wextra -Werror -O3 -Ofast -flto -std=c89
+CFLAGS		=	-Wall -Wextra -Werror -O3 -Ofast -std=c89 -g -fsanitize=address
 
 # Colors
 GREEN		=	\033[32m
@@ -179,7 +184,7 @@ $(NAME): $(OBJ)
 .c.o: $(SRC)
 	@printf "$(GREEN)[$(NAME)]$(RESET): $< -> $@\n"
 	@printf "\e[1A"
-	@gcc -c $< -o $@ -I $(INCLUDES) $(FLAGS)
+	@gcc -c $< -o $@ -I $(INCLUDES) $(CFLAGS)
 	@printf "\e[0K"
 
 clean:

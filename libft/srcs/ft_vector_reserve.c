@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector.c                                        :+:      :+:    :+:   */
+/*   ft_vector_reserve.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 19:57:48 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/18 18:44:13 by lbenard          ###   ########.fr       */
+/*   Created: 2019/02/17 21:08:58 by lbenard           #+#    #+#             */
+/*   Updated: 2019/02/18 21:07:42 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-t_vector	ft_vector(void)
+void	ft_vector_reserve(t_vector *vector, size_t capacity)
 {
-	t_vector	ret;
+	void	*new_data;
 
-	ret.capacity = 0;
-	ret.size = 0;
-	ret.data = NULL;
-	return (ret);
+	if (vector->capacity >= capacity)
+		return ;
+	if (!(new_data = malloc(capacity)))
+	{
+		vector->capacity = 0;
+		return ;
+	}
+	ft_memcpy(new_data, vector->data, vector->capacity);
+	free(vector->data);
+	vector->data = new_data;
+	vector->capacity = capacity;
 }

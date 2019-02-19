@@ -6,7 +6,7 @@
 #    By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/21 19:33:38 by lbenard           #+#    #+#              #
-#    Updated: 2019/02/14 16:50:29 by lbenard          ###   ########.fr        #
+#    Updated: 2019/02/19 16:27:42 by lbenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ LIBFT			=	$(LIBFT_FOLDER)/libft.a
 
 # Compilation
 CXX				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -O3 -Ofast -flto
+CFLAGS			=	-Wall -Wextra -Werror -O3 -Ofast -g -fsanitize=address
+LDFLAGS			=	-fsanitize=address
 INCLUDES		=	-I includes -I $(LIBFT_FOLDER)/includes
 LIB_FOLDERS		=	-L$(LIBFT_FOLDER)
 LIBS			=	-lft
