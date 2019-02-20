@@ -6,17 +6,17 @@
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 17:28:01 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/20 20:17:01 by lbenard          ###   ########.fr       */
+/*   Updated: 2019/02/20 22:47:16 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC3D_H
 # define VEC3D_H
 
-typedef struct s_vec4d	t_vec4d;
-
 # include "maths/vec2d.h"
 # include "maths/vec4d.h"
+
+typedef struct s_vec4d	t_vec4d;
 
 /*
 ** Three-dimensional double vector

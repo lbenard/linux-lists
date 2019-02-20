@@ -6,17 +6,16 @@
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 17:34:05 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/20 20:17:19 by lbenard          ###   ########.fr       */
+/*   Updated: 2019/02/20 22:47:47 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC4LD_H
 # define VEC4LD_H
 
-typedef struct s_vec3ld	t_vec3ld;
-
-
 # include "maths/vec3ld.h"
+
+typedef struct s_vec3ld	t_vec3ld;
 
 /*
 ** Four-dimensional long double vector

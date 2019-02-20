@@ -6,7 +6,7 @@
 #    By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/21 19:33:38 by lbenard           #+#    #+#              #
-#    Updated: 2019/02/20 22:07:31 by lbenard          ###   ########.fr        #
+#    Updated: 2019/02/20 22:50:19 by lbenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ $(LIBFT):
 	@printf "\e[0K"
 	@printf "$(PREFIX) libft all\n";
 	@make -C libft
-	@printf "\e[1A\e[1A\e[0K"
+	@printf "\e[2A\e[0K"
 	@printf "$(PREFIX) libft all done\n";
 
 libft-clean:

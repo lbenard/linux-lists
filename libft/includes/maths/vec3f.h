@@ -6,18 +6,18 @@
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 17:21:15 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/20 20:16:16 by lbenard          ###   ########.fr       */
+/*   Updated: 2019/02/20 22:47:31 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC3F_H
 # define VEC3F_H
 
-typedef struct s_vec2f	t_vec2f;
-typedef struct s_vec4f	t_vec4f;
-
 # include "maths/vec2f.h"
 # include "maths/vec4f.h"
+
+typedef struct s_vec2f	t_vec2f;
+typedef struct s_vec4f	t_vec4f;
 
 /*
 ** Three-dimensional float vector

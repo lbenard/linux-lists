@@ -6,16 +6,16 @@
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 17:23:29 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/20 20:15:16 by lbenard          ###   ########.fr       */
+/*   Updated: 2019/02/20 22:48:30 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VEC4F_H
 # define VEC4F_H
 
-typedef struct s_vec3f	t_vec3f;
-
 # include "vec3f.h"
+
+typedef struct s_vec3f	t_vec3f;
 
 /*
 ** Four-dimensional float vector
