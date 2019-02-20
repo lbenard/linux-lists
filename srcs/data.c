@@ -6,7 +6,7 @@
 /*   By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 16:36:31 by lbenard           #+#    #+#             */
-/*   Updated: 2019/02/19 17:13:30 by lbenard          ###   ########.fr       */
+/*   Updated: 2019/02/20 21:09:02 by lbenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_data	*new_data(int data)
 	if (!(ret = (t_data*)malloc(sizeof(t_data))))
 		return (NULL);
 	ret->data = data;
-	ft_list_init_head(&ret->node);
+	init_list_head(&ret->node);
 	return (ret);
 }
 

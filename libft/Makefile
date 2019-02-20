@@ -6,194 +6,223 @@
 #    By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 18:02:14 by lbenard           #+#    #+#              #
-#    Updated: 2019/02/19 16:27:49 by lbenard          ###   ########.fr        #
+#    Updated: 2019/02/20 21:56:15 by lbenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	libft.a
-SRC			=	srcs/ft_memset.c						\
-				srcs/ft_bzero.c							\
-				srcs/ft_memcpy.c						\
-				srcs/ft_memccpy.c						\
-				srcs/ft_memmove.c						\
-				srcs/ft_memchr.c						\
-				srcs/ft_memcmp.c						\
-				srcs/ft_memalloc.c						\
-				srcs/ft_memdel.c						\
-				srcs/ft_strlen.c						\
-				srcs/ft_strnlen.c						\
-				srcs/ft_strdup.c						\
-				srcs/ft_strndup.c						\
-				srcs/ft_strcpy.c						\
-				srcs/ft_strncpy.c						\
-				srcs/ft_strcat.c						\
-				srcs/ft_strncat.c						\
-				srcs/ft_strlcat.c						\
-				srcs/ft_strchr.c						\
-				srcs/ft_strrchr.c						\
-				srcs/ft_strstr.c						\
-				srcs/ft_strnstr.c						\
-				srcs/ft_strcmp.c						\
-				srcs/ft_strncmp.c						\
-				srcs/ft_strnew.c						\
-				srcs/ft_strdel.c						\
-				srcs/ft_strclr.c						\
-				srcs/ft_striter.c						\
-				srcs/ft_striteri.c						\
-				srcs/ft_strmap.c						\
-				srcs/ft_strmapi.c						\
-				srcs/ft_strequ.c						\
-				srcs/ft_strnequ.c						\
-				srcs/ft_strsub.c						\
-				srcs/ft_strjoin.c						\
-				srcs/ft_strtrim.c						\
-				srcs/ft_strsplit.c						\
-				srcs/ft_strcount.c						\
-				srcs/ft_getline.c						\
-				srcs/ft_skipchr.c						\
-				srcs/ft_isalpha.c						\
-				srcs/ft_isdigit.c						\
-				srcs/ft_isalnum.c						\
-				srcs/ft_isascii.c						\
-				srcs/ft_isprint.c						\
-				srcs/ft_isspace.c						\
-				srcs/ft_isupper.c						\
-				srcs/ft_islower.c						\
-				srcs/ft_toupper.c						\
-				srcs/ft_tolower.c						\
-				srcs/ft_atoi.c							\
-				srcs/ft_atof.c							\
-				srcs/ft_itoa.c							\
-				srcs/ft_abs.c							\
-				srcs/ft_min.c							\
-				srcs/ft_max.c							\
-				srcs/ft_nblen.c							\
-				srcs/ft_putchar.c						\
-				srcs/ft_putstr.c						\
-				srcs/ft_putendl.c						\
-				srcs/ft_putnbr.c						\
-				srcs/ft_putchar_fd.c					\
-				srcs/ft_putstr_fd.c						\
-				srcs/ft_putendl_fd.c					\
-				srcs/ft_putnbr_fd.c						\
-				srcs/ft_lstnew.c						\
-				srcs/ft_lstnewcpy.c						\
-				srcs/ft_lstdelone.c						\
-				srcs/ft_lstdel.c						\
-				srcs/ft_lstadd.c						\
-				srcs/ft_lstiter.c						\
-				srcs/ft_lstmap.c						\
-				srcs/ft_lststrjoin.c					\
-				srcs/ft_lstfind.c						\
-				srcs/ft_lstcontentfind.c				\
-				srcs/ft_lstpushback.c					\
-				srcs/ft_lstlast.c						\
-				srcs/ft_lstfree.c						\
-				srcs/ft_lstremove.c						\
-				srcs/ft_list_init_head.c				\
-				srcs/ft_list_add.c						\
-				srcs/ft_list_add_entry.c				\
-				srcs/ft_list_add_tail.c					\
-				srcs/ft_list_del.c						\
-				srcs/ft_list_del_entry.c				\
-				srcs/ft_list_move.c						\
-				srcs/ft_list_move_tail.c				\
-				srcs/ft_list_is_last.c					\
-				srcs/ft_list_is_empty.c					\
-				srcs/ft_vector.c						\
-				srcs/ft_vector_data.c					\
-				srcs/ft_vector_reserve.c				\
-				srcs/ft_vector_push_back.c				\
-				srcs/ft_vector_free.c					\
-				srcs/get_next_line.c					\
-				srcs/ft_usize.c							\
-				srcs/ft_isize.c							\
-				srcs/ft_vec2i.c							\
-				srcs/ft_vec2f.c							\
-				srcs/ft_vec2f_dot.c						\
-				srcs/ft_vec2f_scalar.c					\
-				srcs/ft_vec3f.c							\
-				srcs/ft_vec3f_dot.c						\
-				srcs/ft_vec3f_scalar.c					\
-				srcs/ft_vec3f_to_vec2f.c				\
-				srcs/ft_vec4f.c							\
-				srcs/ft_vec4f_dot.c						\
-				srcs/ft_vec4f_scalar.c					\
-				srcs/ft_vec4f_to_vec3f.c				\
-				srcs/ft_vec3f_to_vec4f.c				\
-				srcs/ft_vec2d.c							\
-				srcs/ft_vec2d_dot.c						\
-				srcs/ft_vec2d_scalar.c					\
-				srcs/ft_vec3d.c							\
-				srcs/ft_vec3d_dot.c						\
-				srcs/ft_vec3d_scalar.c					\
-				srcs/ft_vec3d_to_vec2d.c				\
-				srcs/ft_vec4d.c							\
-				srcs/ft_vec4d_dot.c						\
-				srcs/ft_vec4d_scalar.c					\
-				srcs/ft_vec4d_to_vec3d.c				\
-				srcs/ft_vec3d_to_vec4d.c				\
-				srcs/ft_vec2ld.c						\
-				srcs/ft_vec2ld_dot.c					\
-				srcs/ft_vec2ld_scalar.c					\
-				srcs/ft_vec3ld.c						\
-				srcs/ft_vec3ld_dot.c					\
-				srcs/ft_vec3ld_scalar.c					\
-				srcs/ft_vec3ld_to_vec2ld.c				\
-				srcs/ft_vec4ld.c						\
-				srcs/ft_vec4ld_dot.c					\
-				srcs/ft_vec4ld_scalar.c					\
-				srcs/ft_vec4ld_to_vec3ld.c				\
-				srcs/ft_vec3ld_to_vec4ld.c				\
-				srcs/ft_mat3.c							\
-				srcs/ft_mat3_identity.c					\
-				srcs/ft_print_mat3.c					\
-				srcs/ft_mat3_x_mat3.c					\
-				srcs/ft_mat3_x_vec3.c					\
-				srcs/ft_mat4.c							\
-				srcs/ft_mat4_identity.c					\
-				srcs/ft_print_mat4.c					\
-				srcs/ft_mat4_x_mat4.c					\
-				srcs/ft_mat4_x_vec4.c					\
-				srcs/ft_mat4_translation.c				\
-				srcs/ft_mat4_scaling.c					\
-				srcs/ft_mat4_rotation.c					\
-				srcs/ft_mat4_orthographic_projection.c	\
-				srcs/ft_mat4_perspective_projection.c	\
-				srcs/ft_rgb.c							\
-				srcs/ft_rgb_to_int.c					\
-				srcs/ft_int_to_rgb.c					\
-				srcs/ft_hsv.c							\
-				srcs/ft_hsv_to_rgb.c
-OBJ			=	$(SRC:.c=.o)
-SRC_FOLDER	=	./srcs
-INCLUDES	=	./includes
-CFLAGS		=	-Wall -Wextra -Werror -O3 -Ofast -std=c89 -g -fsanitize=address
+NAME			=	libft.a
+SRCS_LIST		=	containers/list/init_list_head.c		\
+					containers/list/list_foreach.c			\
+					containers/list/list_is_last.c			\
+					containers/list/list_is_empty.c			\
+					containers/list/list_add.c				\
+					containers/list/list_add_entry.c		\
+					containers/list/list_add_tail.c			\
+					containers/list/list_del.c				\
+					containers/list/list_del_entry.c		\
+					containers/list/list_move.c				\
+					containers/list/list_move_tail.c		\
+					containers/list/new_lst.c				\
+					containers/list/new_lstcpy.c			\
+					containers/list/new_lstmap.c			\
+					containers/list/lst_iter.c				\
+					containers/list/lst_last.c				\
+					containers/list/lst_find.c				\
+					containers/list/lst_content_find.c		\
+					containers/list/lst_add.c				\
+					containers/list/lst_push_back.c			\
+					containers/list/lst_del_one.c			\
+					containers/list/lst_del.c				\
+					containers/list/lst_remove.c			\
+					containers/list/lst_strjoin.c			\
+					containers/list/free_lst.c				\
+					containers/vector/init_vector.c			\
+					containers/vector/init_vector_data.c	\
+					containers/vector/vector_reserve.c		\
+					containers/vector/vector_shrink.c		\
+					containers/vector/vector_clear.c		\
+					containers/vector/vector_insert.c		\
+					containers/vector/vector_push_back.c	\
+					containers/vector/free_vector.c			\
+					colors/rgb/ft_rgb.c						\
+					colors/rgb/ft_rgb_int.c					\
+					colors/rgb/ft_rgb_hsv.c					\
+					colors/rgb/rgb_to_int.c					\
+					colors/hsv/ft_hsv.c						\
+					colors/hsv/hsv_to_int.c					\
+					sizes/ft_usize.c						\
+					sizes/ft_isize.c						\
+					maths/maths/ft_abs.c					\
+					maths/maths/ft_max.c					\
+					maths/maths/ft_min.c					\
+					maths/maths/ft_atoi.c					\
+					maths/maths/ft_atof.c					\
+					maths/maths/ft_itoa.c					\
+					maths/maths/ft_nblen.c					\
+					maths/vec2i/ft_vec2i.c					\
+					maths/vec3i/ft_vec3i.c					\
+					maths/vec4i/ft_vec4i.c					\
+					maths/vec2f/ft_vec2f.c					\
+					maths/vec2f/vec2f_dot.c					\
+					maths/vec2f/vec2f_scalar.c				\
+					maths/vec3f/ft_vec3f.c					\
+					maths/vec3f/vec3f_dot.c					\
+					maths/vec3f/vec3f_scalar.c				\
+					maths/vec3f/vec3f_to_vec2f.c			\
+					maths/vec3f/vec3f_to_vec4f.c			\
+					maths/vec4f/ft_vec4f.c					\
+					maths/vec4f/vec4f_dot.c					\
+					maths/vec4f/vec4f_scalar.c				\
+					maths/vec4f/vec4f_to_vec3f.c			\
+					maths/vec2d/ft_vec2d.c					\
+					maths/vec2d/vec2d_dot.c					\
+					maths/vec2d/vec2d_scalar.c				\
+					maths/vec3d/ft_vec3d.c					\
+					maths/vec3d/vec3d_dot.c					\
+					maths/vec3d/vec3d_scalar.c				\
+					maths/vec3d/vec3d_to_vec2d.c			\
+					maths/vec3d/vec3d_to_vec4d.c			\
+					maths/vec4d/ft_vec4d.c					\
+					maths/vec4d/vec4d_dot.c					\
+					maths/vec4d/vec4d_scalar.c				\
+					maths/vec4d/vec4d_to_vec3d.c			\
+					maths/vec2ld/ft_vec2ld.c				\
+					maths/vec2ld/vec2ld_dot.c				\
+					maths/vec2ld/vec2ld_scalar.c			\
+					maths/vec3ld/ft_vec3ld.c				\
+					maths/vec3ld/vec3ld_dot.c				\
+					maths/vec3ld/vec3ld_scalar.c			\
+					maths/vec3ld/vec3ld_to_vec2ld.c			\
+					maths/vec3ld/vec3ld_to_vec4ld.c			\
+					maths/vec4ld/ft_vec4ld.c				\
+					maths/vec4ld/vec4ld_dot.c				\
+					maths/vec4ld/vec4ld_scalar.c			\
+					maths/vec4ld/vec4ld_to_vec3ld.c			\
+					maths/mat3f/ft_mat3f.c					\
+					maths/mat3f/ft_mat3f_identity.c			\
+					maths/mat3f/mat3f_x_mat3f.c				\
+					maths/mat3f/mat3f_x_vec3f.c				\
+					maths/mat4f/ft_mat4f.c					\
+					maths/mat4f/ft_mat4f_identity.c			\
+					maths/mat4f/ft_mat4f_translation.c		\
+					maths/mat4f/ft_mat4f_scaling.c			\
+					maths/mat4f/ft_mat4f_rotation.c			\
+					maths/mat4f/mat4f_x_mat4f.c				\
+					maths/mat4f/mat4f_x_vec4f.c				\
+					ft/io/ft_putchar.c						\
+					ft/io/ft_putstr.c						\
+					ft/io/ft_putendl.c						\
+					ft/io/ft_putnbr.c						\
+					ft/io/ft_putchar_fd.c					\
+					ft/io/ft_putstr_fd.c					\
+					ft/io/ft_putendl_fd.c					\
+					ft/io/ft_putnbr_fd.c					\
+					ft/mem/ft_memset.c						\
+					ft/mem/ft_bzero.c						\
+					ft/mem/ft_memcpy.c						\
+					ft/mem/ft_memccpy.c						\
+					ft/mem/ft_memmove.c						\
+					ft/mem/ft_memchr.c						\
+					ft/mem/ft_memcmp.c						\
+					ft/mem/ft_memalloc.c					\
+					ft/mem/ft_memdel.c						\
+					ft/str/ft_strlen.c						\
+					ft/str/ft_strnlen.c						\
+					ft/str/ft_strdup.c						\
+					ft/str/ft_strndup.c						\
+					ft/str/ft_strcpy.c						\
+					ft/str/ft_strncpy.c						\
+					ft/str/ft_strcat.c						\
+					ft/str/ft_strncat.c						\
+					ft/str/ft_strlcat.c						\
+					ft/str/ft_strchr.c						\
+					ft/str/ft_strrchr.c						\
+					ft/str/ft_strstr.c						\
+					ft/str/ft_strnstr.c						\
+					ft/str/ft_strcmp.c						\
+					ft/str/ft_strncmp.c						\
+					ft/str/ft_strnew.c						\
+					ft/str/ft_strdel.c						\
+					ft/str/ft_strclr.c						\
+					ft/str/ft_striter.c						\
+					ft/str/ft_striteri.c					\
+					ft/str/ft_strmap.c						\
+					ft/str/ft_strmapi.c						\
+					ft/str/ft_strequ.c						\
+					ft/str/ft_strnequ.c						\
+					ft/str/ft_strsub.c						\
+					ft/str/ft_strjoin.c						\
+					ft/str/ft_strtrim.c						\
+					ft/str/ft_strsplit.c					\
+					ft/str/ft_strcount.c					\
+					ft/str/ft_getline.c						\
+					ft/str/ft_skipchr.c						\
+					ft/str/ft_isalpha.c						\
+					ft/str/ft_isdigit.c						\
+					ft/str/ft_isalnum.c						\
+					ft/str/ft_isascii.c						\
+					ft/str/ft_isprint.c						\
+					ft/str/ft_isspace.c						\
+					ft/str/ft_isupper.c						\
+					ft/str/ft_islower.c						\
+					ft/str/ft_toupper.c						\
+					ft/str/ft_tolower.c						\
+					ft/str/ft_get_next_line.c
+
+SRCS_FOLDER		=	./srcs/
+SRCS			=	$(addprefix $(SRCS_FOLDER), $(SRCS_LIST))
+OBJS_LIST		=	$(SRCS_LIST:.c=.o)
+OBJS_FOLDER		=	./objs/
+OBJS			=	$(addprefix $(OBJS_FOLDER), $(OBJS_LIST))
+INCLUDES		=	-I includes/
+CFLAGS			=	-Wall -Wextra -Werror -O3 -Ofast -flto
 
 # Colors
-GREEN		=	\033[32m
-RESET		=	\033[0m
+BOLD			=	\e[1m
+DIM				=	\e[2m
+ITALIC			=	\e[3m
+UNDERLINED		=	\e[4m
+
+BLACK			=	\e[30m
+RED				=	\e[31m
+GREEN			=	\e[32m
+YELLOW			=	\e[33m
+BLUE			=	\e[34m
+MAGENTA			=	\e[35m
+CYAN			=	\e[36m
+LIGHT_GRAY		=	\e[37m
+DARK_GRAY		=	\e[90m
+LIGHT_RED		=	\e[91m
+LIGHT_GREEN		=	\e[92m
+LIGHT_YELLOW	=	\e[93m
+LIGHT_BLUE		=	\e[94m
+LIGHT_MAGENTA	=	\e[95m
+LIGHT_CYAN		=	\e[96m
+WHITE			=	\e[97m
+RESET			=	\e[0m
+
+PREFIX			=	$(BOLD)$(LIGHT_CYAN)[$(NAME)]$(RESET):
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
 	@ranlib $(NAME)
-	@printf "$(GREEN)[$(NAME)]$(RESET): done\n"
+	@printf "$(PREFIX) done\n"
 
-.c.o: $(SRC)
-	@printf "$(GREEN)[$(NAME)]$(RESET): $< -> $@\n"
-	@printf "\e[1A"
-	@gcc -c $< -o $@ -I $(INCLUDES) $(CFLAGS)
-	@printf "\e[0K"
+$(OBJS_FOLDER)%.o: $(SRCS_FOLDER)%.c
+	@printf "$(PREFIX) $(shell basename $<)\n"
+	@mkdir -p $(dir $@)
+	@gcc -c $< -o $@ $(INCLUDES) $(CFLAGS)
+	@printf "\e[1A\e[0K"
 
 clean:
-	@printf "$(GREEN)[$(NAME)]$(RESET): clean\n"
-	@rm -rf $(OBJ)
+	@printf "$(PREFIX) clean\n"
+	@rm -rf $(OBJS_FOLDER)
 
 fclean:
-	@rm -rf $(OBJ) $(NAME)
-	@printf "$(GREEN)[$(NAME)]$(RESET): fclean\n"
+	@rm -rf $(OBJS_FOLDER) $(NAME)
+	@printf "$(PREFIX) fclean\n"
 
 re: fclean all
 

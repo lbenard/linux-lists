@@ -6,88 +6,108 @@
 #    By: lbenard <lbenard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/21 19:33:38 by lbenard           #+#    #+#              #
-#    Updated: 2019/02/19 16:27:42 by lbenard          ###   ########.fr        #
+#    Updated: 2019/02/20 22:07:31 by lbenard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	linux-lists
+SRCS_LIST		=	main.c	\
+					data.c
 
-# Sources
-SRC				=	srcs/main.c		\
-					srcs/data.c
-
-UNAME			=	$(shell uname)
+SRCS_FOLDER		=	./srcs/
+SRCS			=	$(addprefix $(SRCS_FOLDER), $(SRCS_LIST))
+OBJS_LIST		=	$(SRCS_LIST:.c=.o)
+OBJS_FOLDER		=	./objs/
+OBJS			=	$(addprefix $(OBJS_FOLDER), $(OBJS_LIST))
 
 LIBFT_FOLDER	=	libft
 LIBFT			=	$(LIBFT_FOLDER)/libft.a
 
-# Compilation
 CXX				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -O3 -Ofast -g -fsanitize=address
-LDFLAGS			=	-fsanitize=address
+LD				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror -O3 -Ofast -flto
+LDFLAGS			=
 INCLUDES		=	-I includes -I $(LIBFT_FOLDER)/includes
 LIB_FOLDERS		=	-L$(LIBFT_FOLDER)
 LIBS			=	-lft
 
-# Linking
-OBJ				=	$(SRC:.c=.o)
-
 # Colors
-GREEN			=	\033[32m
-RESET			=	\033[0m
+BOLD			=	\e[1m
+DIM				=	\e[2m
+ITALIC			=	\e[3m
+UNDERLINED		=	\e[4m
+
+BLACK			=	\e[30m
+RED				=	\e[31m
+GREEN			=	\e[32m
+YELLOW			=	\e[33m
+BLUE			=	\e[34m
+MAGENTA			=	\e[35m
+CYAN			=	\e[36m
+LIGHT_GRAY		=	\e[37m
+DARK_GRAY		=	\e[90m
+LIGHT_RED		=	\e[91m
+LIGHT_GREEN		=	\e[92m
+LIGHT_YELLOW	=	\e[93m
+LIGHT_BLUE		=	\e[94m
+LIGHT_MAGENTA	=	\e[95m
+LIGHT_CYAN		=	\e[96m
+WHITE			=	\e[97m
+RESET			=	\e[0m
+
+PREFIX			=	$(BOLD)$(LIGHT_CYAN)[$(NAME)]$(RESET):
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJ)
-	@printf "$(GREEN)[cc]$(RESET): done\n"
-	@printf "$(GREEN)[ld]$(RESET): $(NAME)\n"
-	@$(CXX) -o $(NAME) $(OBJ) $(LIB_FOLDERS) $(LIBS) $(LDFLAGS) $(INCLUDES)
+$(NAME): $(OBJS)
+	@$(LD) $(OBJS) $(LIBFT) -o $(NAME)
+	@printf "$(PREFIX) done\n"
 
-.c.o: $(SRC)
-	@printf "$(GREEN)[cc]$(RESET): $< -> $@\n"
-	@printf "\e[1A"
+$(OBJS_FOLDER)%.o: $(SRCS_FOLDER)%.c
+	@printf "$(PREFIX) $(shell basename $<)\n"
+	@mkdir -p $(dir $@)
 	@gcc -c $< -o $@ $(INCLUDES) $(CFLAGS)
-	@printf "\e[0K"
+	@printf "\e[1A\e[0K"
 
 run: all
 	@./$(NAME)
 
 $(LIBFT):
 	@printf "\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft all\n";
+	@printf "$(PREFIX) libft all\n";
 	@make -C libft
 	@printf "\e[1A\e[1A\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft all done\n";
+	@printf "$(PREFIX) libft all done\n";
 
 libft-clean:
 	@printf "\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft clean\n";
+	@printf "$(PREFIX) libft clean\n";
 	@make -C $(LIBFT_FOLDER) clean >/dev/null
 	@printf "\e[1A\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft clean done\n";
+	@printf "$(PREFIX) libft clean done\n";
 
 libft-fclean:
 	@printf "\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft fclean\n";
+	@printf "$(PREFIX) libft fclean\n";
 	@make -C $(LIBFT_FOLDER) fclean >/dev/null
 	@printf "\e[1A\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft fclean done\n";
+	@printf "$(PREFIX) libft fclean done\n";
 
 libft-re:
 	@printf "\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft re\n";
+	@printf "$(PREFIX) libft re\n";
 	@make -C $(LIBFT_FOLDER) re
 	@printf "\e[1A\e[0K"
-	@printf "$(GREEN)[mk]$(RESET): libft re done\n";
+	@printf "$(PREFIX) libft re done\n";
 
 clean: libft-clean
 	@printf "\e[0K"
-	@printf "$(GREEN)[rm]$(RESET): cleaned object files\n"
+	@printf "$(PREFIX) cleaned object files\n"
 	@rm -rf $(OBJ)
 
 fclean: clean libft-fclean
 	@printf "\e[0K"
-	@printf "$(GREEN)[rm]$(RESET): cleaned binary file\n"
+	@printf "$(PREFIX) cleaned binary file\n"
 	@rm -rf $(NAME)
 
 separator:
